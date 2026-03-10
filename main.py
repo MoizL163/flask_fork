@@ -26,6 +26,7 @@ from api.classroom_api import classroom_api
 from api.data_export_import_api import data_export_import_api
 from hacks.joke import joke_api  # Import the joke API blueprint
 from api.post import post_api  # Import the social media post API
+from api.titanic_api import titanic_api
 #from api.announcement import announcement_api ##temporary revert
 
 # database Initialization functions
@@ -40,6 +41,7 @@ from api.feedback_api import feedback_api
 from model.study import Study, initStudies
 from model.classroom import Classroom
 from model.persona import Persona, initPersonas, initPersonaUsers
+from model.titanic import initTitanic
 from model.post import Post, init_posts
 from model.microblog import MicroBlog, Topic, initMicroblogs
 from hacks.jokes import initJokes 
@@ -79,6 +81,7 @@ app.register_blueprint(feedback_api)
 app.register_blueprint(data_export_import_api)  # Register the data export/import API
 app.register_blueprint(joke_api)  # Register the joke API blueprint
 app.register_blueprint(post_api)  # Register the social media post API
+app.register_blueprint(titanic_api)
 # app.register_blueprint(announcement_api) ##temporary revert
 
 # Jokes file initialization
@@ -318,6 +321,7 @@ def generate_data():
     initMicroblogs()
     initPersonas()
     initPersonaUsers()
+    initTitanic()
 
 # Register the custom command group with the Flask application
 app.cli.add_command(custom_cli)

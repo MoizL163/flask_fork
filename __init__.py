@@ -27,18 +27,13 @@ login_manager.init_app(app)
 
 
 # Allowed servers for cross-origin resource sharing (CORS)
+# Regex entries allow localhost and 127.0.0.1 on any port for local frontend dev.
 cors = CORS(
    app,
    supports_credentials=True,
    origins=[
-       'http://localhost:4500',
-       'http://127.0.0.1:4500',
-       'http://localhost:4599',
-       'http://127.0.0.1:4599',
-       'http://localhost:4600',
-       'http://127.0.0.1:4600',
-       'http://localhost:4000',
-       'http://127.0.0.1:4000',
+       r'http://localhost(:[0-9]+)?',
+       r'http://127\.0\.0\.1(:[0-9]+)?',
        'https://open-coding-society.github.io',
        'https://pages.opencodingsociety.com',
    ],
